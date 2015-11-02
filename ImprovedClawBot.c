@@ -1,4 +1,5 @@
 #pragma config(Motor,  port1,           RMotor,        tmotorVex393_HBridge, openLoop, reversed, driveRight)
+#pragma config(Motor,  port5,           Thumb,         tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           Claw,          tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port7,           Arm,           tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port10,          LMotor,        tmotorVex393_HBridge, openLoop, reversed, driveLeft)
@@ -34,6 +35,20 @@ task main()
 		else
 		{
 			motor[Claw]=40;
+		}
+
+		//Thumb Control
+		if (vexRT[Btn5U]==1)
+		{
+			motor[Thumb]=60;
+		}
+		else if (vexRT[Btn5D]==1)
+		{
+			motor[Thumb]=-30;
+		}
+		else
+		{
+			motor[Thumb]=0;
 		}
 	}
 }
